@@ -17,10 +17,10 @@ public class Driver {
     // singleton constructor
     private Driver(){}
 
-    public static WebDriver getDriver(String browserNumber){
+    public static WebDriver getDriver(){
 
         if(driver==null){
-            String browser = ConfigurationReader.getProperty(browserNumber).toLowerCase();
+            String browser = ConfigurationReader.getProperty("browser0").toLowerCase();
             String os = System.getProperty("os.name").toLowerCase();
             if(os.contains("windows")&&browser.equalsIgnoreCase("safari")  ||  os.contains("mac")&&browser.equalsIgnoreCase("edg")){
                 driver = null;
