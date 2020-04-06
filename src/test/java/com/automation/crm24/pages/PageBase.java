@@ -57,9 +57,10 @@ public abstract class PageBase {
      * @return to return hole hour:minute or only hour or only minute
      */
     public String getCurrentTime(String format){
-        format = format.toUpperCase();
+
         BrowserUtils.waitForPageLoad(15);
         wait.until(ExpectedConditions.visibilityOf(clockBlock));
+        format = format.toUpperCase();
 
         switch (format){
             case "HH:MM":
@@ -113,6 +114,16 @@ public abstract class PageBase {
         String path="//*[@class='sitemap-section-title' and contains(text(),'"+module+"')] /..//a[@class='sitemap-section-item' and contains(text(),'"+subModule+"')]";
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath(path)))).click();
 
+    }
+
+    /**
+     * this method will click on the left modules by user's data
+     * @param value  data that user provide case sensitive
+     */
+    public void leftModule_clickByValue(String value){
+        BrowserUtils.waitForPageLoad(15);
+        String path = "//*[@title='"+value+"']";
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath(path)))).click();
     }
 
 
