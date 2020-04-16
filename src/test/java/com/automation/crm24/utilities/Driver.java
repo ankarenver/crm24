@@ -1,4 +1,4 @@
-package com.automation.crm24.utilites;
+package com.automation.crm24.utilities;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;

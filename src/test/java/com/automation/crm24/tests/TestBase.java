@@ -1,9 +1,9 @@
 package com.automation.crm24.tests;
 
 
-import com.automation.crm24.utilites.BrowserUtils;
-import com.automation.crm24.utilites.ConfigurationReader;
-import com.automation.crm24.utilites.Driver;
+import com.automation.crm24.utilities.BrowserUtils;
+import com.automation.crm24.utilities.ConfigurationReader;
+import com.automation.crm24.utilities.Driver;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;

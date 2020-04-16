@@ -1,7 +1,7 @@
 package com.automation.crm24.pages.activityStream;
 
 import com.automation.crm24.pages.PageBase;
-import com.automation.crm24.utilites.BrowserUtils;
+import com.automation.crm24.utilities.BrowserUtils;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 

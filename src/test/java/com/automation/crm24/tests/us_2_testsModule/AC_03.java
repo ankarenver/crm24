@@ -3,7 +3,7 @@ package com.automation.crm24.tests.us_2_testsModule;
 import com.automation.crm24.pages.LoginPage;
 import com.automation.crm24.pages.tasks.TasksPage;
 import com.automation.crm24.tests.TestBase;
-import com.automation.crm24.utilites.BrowserUtils;
+import com.automation.crm24.utilities.BrowserUtils;
 import org.testng.annotations.Test;
 
 public class AC_03 extends TestBase {

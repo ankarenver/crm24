@@ -3,10 +3,9 @@ package com.automation.crm24.tests;
 import com.automation.crm24.pages.LoginPage;
 import com.automation.crm24.pages.activityStream.ActivityStreamPageTop;
 import com.automation.crm24.pages.activityStream.subFunctionTop.Message;
-import com.automation.crm24.utilites.BrowserUtils;
-import com.automation.crm24.utilites.Driver;
+import com.automation.crm24.utilities.BrowserUtils;
+import com.automation.crm24.utilities.Driver;
 import org.openqa.selenium.By;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class LoginTest extends TestBase {

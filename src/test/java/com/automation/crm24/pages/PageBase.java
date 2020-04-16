@@ -1,7 +1,7 @@
 package com.automation.crm24.pages;
 
-import com.automation.crm24.utilites.BrowserUtils;
-import com.automation.crm24.utilites.Driver;
+import com.automation.crm24.utilities.BrowserUtils;
+import com.automation.crm24.utilities.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;

@@ -1,8 +1,7 @@
 package com.automation.crm24.pages;
 
-import com.automation.crm24.utilites.BrowserUtils;
-import com.automation.crm24.utilites.ConfigurationReader;
-import com.automation.crm24.utilites.Driver;
+import com.automation.crm24.utilities.ConfigurationReader;
+import com.automation.crm24.utilities.Driver;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

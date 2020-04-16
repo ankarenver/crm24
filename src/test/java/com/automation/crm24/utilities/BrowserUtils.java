@@ -1,4 +1,4 @@
-package com.automation.crm24.utilites;
+package com.automation.crm24.utilities;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.JavascriptExecutor;

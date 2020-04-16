@@ -1,4 +1,4 @@
-package com.automation.crm24.utilites;
+package com.automation.crm24.utilities;
 
 import java.io.FileInputStream;
 import java.util.Properties;
