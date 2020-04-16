@@ -120,7 +120,7 @@ public abstract class PageBase {
      * this method will click on the left modules by user's data
      * @param value  data that user provide case sensitive
      */
-    public void leftModule_clickByValue(String value){
+    public void leftNavigation(String value){
         BrowserUtils.waitForPageToLoad(15);
         String path = "//*[@title='"+value+"']";
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath(path)))).click();
