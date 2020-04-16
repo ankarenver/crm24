@@ -11,6 +11,7 @@ import com.automation.crm24.utilities.BrowserUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
 import java.util.Iterator;
@@ -68,16 +69,17 @@ BrowserUtils.wait(1);
         driver.switchTo().defaultContent();
     }
 
+    public void clickUploadFileIcon(){
+        wait.until(ExpectedConditions.visibilityOf(uploadFile)).click();
+    }
+
     /**
      * Upload file from local
      */
     public void uploadFileFromLocal(String fileLocation){
 
-        BrowserUtils.wait(3);
-        uploadFile.click();
-        BrowserUtils.wait(3);
-        WebElement upload=driver.findElement(By.xpath("//span[@class=\"wd-fa-add-file-light-descript\" and contains(text(),'Drag')]/../../.."));
-        upload.click();
+       clickUploadFileIcon();
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//span[@class=\"wd-fa-add-file-light-descript\" and contains(text(),'Drag')]/../../..")))).click();
 
         try {
             Runtime.getRuntime().exec("osascript "+System.getProperty("user.dir") + "/uploadFile.scpt "+fileLocation);
@@ -95,12 +97,11 @@ BrowserUtils.wait(1);
      * Upload file from Bitrix24
      */
     public void uploadFileFromBitrix24(String itemName){
-        BrowserUtils.wait(3);
-        uploadFile.click();
-        BrowserUtils.wait(3);
+        clickUploadFileIcon();
+
         //There is a bug, this box is not clickable. You should click directly title
-        WebElement upload=driver.findElement(By.xpath("//span[@class=\"wd-fa-add-file-light-title-text diskuf-selector-link\" and contains(text(),'Select document from Bitrix24')]"));
-        upload.click();
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//span[@class=\"wd-fa-add-file-light-title-text diskuf-selector-link\" and contains(text(),'Select document from Bitrix24')]")))).click();
+
         BrowserUtils.wait(2);
         List<WebElement> recentItemList=driver.findElements(By.xpath("//a[@class='bx-file-dialog-content-link bx-file-dialog-icon bx-file-dialog-icon-file']"));
         for (WebElement e:recentItemList) {
@@ -121,11 +122,9 @@ BrowserUtils.wait(1);
      * Upload file from Extarnal Drive
      */
     public void uploadFileFromExtarnalDrive(){
-        BrowserUtils.wait(3);
-        uploadFile.click();
-        BrowserUtils.wait(3);
-        WebElement upload=driver.findElement(By.xpath("//span[@class=\"wd-fa-add-file-light-title-text\" and contains(text(),'Download from')]/../../.."));
-        upload.click();
+        clickUploadFileIcon();
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//span[@class=\"wd-fa-add-file-light-title-text\" and contains(text(),'Download from')]/..")))).click();
+
         BrowserUtils.wait(3);
         WebElement error=driver.findElement(By.className("ui-notification-balloon-content"));
         Assert.assertFalse(error.isDisplayed(),"Download from extarnal drive Service Problem");
@@ -136,14 +135,13 @@ BrowserUtils.wait(1);
      * Upload created file from Office365
      */
     public void createUploadFileOffice365(String documentType){
-        BrowserUtils.wait(3);
-        uploadFile.click();
+        clickUploadFileIcon();
         BrowserUtils.wait(3);
 
         String mainWindow=driver.getWindowHandle();
 
-        WebElement upload=driver.findElement(By.xpath("//a[span[@class=\"wd-fa-add-file-editor-link\" and contains(text(),\""+documentType+"\")]]"));
-        upload.click();
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//a[span[@class=\"wd-fa-add-file-editor-link\" and contains(text(),\""+documentType+"\")]]")))).click();
+
         BrowserUtils.wait(3);
         Set<String> set =driver.getWindowHandles();
         Iterator<String> itr= set.iterator();
