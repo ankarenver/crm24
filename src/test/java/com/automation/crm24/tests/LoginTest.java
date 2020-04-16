@@ -37,7 +37,7 @@ public class LoginTest extends TestBase {
         BrowserUtils.wait(2);
         Message m = new Message();
         BrowserUtils.wait(3);
-        m.uploadFileFromLocal();
+//        m.uploa;
         BrowserUtils.wait(3);
         mainPage.send();
         BrowserUtils.wait(5);

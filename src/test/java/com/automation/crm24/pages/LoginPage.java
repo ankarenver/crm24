@@ -28,7 +28,6 @@ public class LoginPage {
     }
 
     public void login(){
-        BrowserUtils.wait(3);
         userName.sendKeys(ConfigurationReader.getProperty("hr"));
         password.sendKeys(ConfigurationReader.getProperty("password"), Keys.ENTER);
     }
