@@ -45,7 +45,7 @@ public abstract class PageBase {
     }
 
     public String getCurrentUserName(){
-        BrowserUtils.waitForPageLoad(15);
+        BrowserUtils.waitForPageToLoad(15);
         wait.until(ExpectedConditions.visibilityOf(currentUser));
         return currentUser.getText().trim();
     }
@@ -58,7 +58,7 @@ public abstract class PageBase {
      */
     public String getCurrentTime(String format){
 
-        BrowserUtils.waitForPageLoad(15);
+        BrowserUtils.waitForPageToLoad(15);
         wait.until(ExpectedConditions.visibilityOf(clockBlock));
         format = format.toUpperCase();
 
@@ -83,7 +83,7 @@ public abstract class PageBase {
      * @param value any data that user wants to search
      */
     public void search_value(String value){
-        BrowserUtils.waitForPageLoad(15);
+        BrowserUtils.waitForPageToLoad(15);
         wait.until(ExpectedConditions.visibilityOf(searchBox));
         searchBox.sendKeys(value, Keys.ENTER);
     }
@@ -94,7 +94,7 @@ public abstract class PageBase {
      * @param module user will enter module name case sensitive
      */
     public void topNavigation(String module){
-        BrowserUtils.waitForPageLoad(15);
+        BrowserUtils.waitForPageToLoad(15);
         wait.until(ExpectedConditions.visibilityOf(siteMapBtn));
         siteMapBtn.click();
         String path="//a[@class='sitemap-section-title' and contains(text(),'"+module+"')]";
@@ -108,7 +108,7 @@ public abstract class PageBase {
      * @param subModule
      */
     public void topNavigation(String module, String subModule){
-        BrowserUtils.waitForPageLoad(15);
+        BrowserUtils.waitForPageToLoad(15);
         wait.until(ExpectedConditions.visibilityOf(siteMapBtn));
         siteMapBtn.click();
         String path="//*[@class='sitemap-section-title' and contains(text(),'"+module+"')] /..//a[@class='sitemap-section-item' and contains(text(),'"+subModule+"')]";
@@ -121,7 +121,7 @@ public abstract class PageBase {
      * @param value  data that user provide case sensitive
      */
     public void leftModule_clickByValue(String value){
-        BrowserUtils.waitForPageLoad(15);
+        BrowserUtils.waitForPageToLoad(15);
         String path = "//*[@title='"+value+"']";
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath(path)))).click();
     }

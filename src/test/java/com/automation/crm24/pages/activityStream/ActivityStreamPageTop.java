@@ -38,6 +38,9 @@ public class ActivityStreamPageTop extends PageBase {
     @FindBy(id = "blog-submit-button-cancel")
     private WebElement cancel;
 
+    @FindBy(xpath = "(//span[@title='Upload files'])[1]")
+    private WebElement uploadFile;
+
 
 
 
@@ -46,7 +49,7 @@ public class ActivityStreamPageTop extends PageBase {
      * @param tabValue tab name
      */
     public  void navigateTo(String tabValue){
-        BrowserUtils.waitForPageLoad(15);
+        BrowserUtils.waitForPageToLoad(15);
         tabValue = tabValue.toLowerCase();
         switch (tabValue){
             case "message":
@@ -79,17 +82,14 @@ public class ActivityStreamPageTop extends PageBase {
     }
 
     public void  send(){
-        BrowserUtils.waitForPageLoad(15);
+        BrowserUtils.waitForPageToLoad(15);
         send.click();
     }
 
     public void cancel(){
-        BrowserUtils.waitForPageLoad(15);
+        BrowserUtils.waitForPageToLoad(15);
         cancel.click();
     }
-
-
-
 
 
 }

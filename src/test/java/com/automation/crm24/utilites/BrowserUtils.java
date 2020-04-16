@@ -4,12 +4,15 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class BrowserUtils {
 
@@ -25,7 +28,7 @@ public class BrowserUtils {
      * this method will wait until page is fully loaded
      * @param timeOutInSec user will provide time in second
      */
-    public static void waitForPageLoad(long timeOutInSec){
+    public static void waitForPageToLoad(long timeOutInSec){
         ExpectedCondition<Boolean> expectation = driver -> ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
 
         try {
@@ -70,5 +73,16 @@ public class BrowserUtils {
             e.printStackTrace();
         }
         return path;
+    }
+
+    /**
+     *  this method will convert list of WebElement to list of String
+     * @param data  represents collection of WebElements
+     * @return list of strings
+     */
+    public static List<String> getTextFromWebElement(List<WebElement> data){
+        List<String> result = new ArrayList<>();
+        data.forEach(each -> result.add(each.getText()));
+        return result;
     }
 }

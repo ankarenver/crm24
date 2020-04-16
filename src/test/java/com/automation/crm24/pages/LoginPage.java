@@ -1,7 +1,9 @@
 package com.automation.crm24.pages;
 
+import com.automation.crm24.utilites.BrowserUtils;
 import com.automation.crm24.utilites.ConfigurationReader;
 import com.automation.crm24.utilites.Driver;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -23,6 +25,12 @@ public class LoginPage {
 
     public LoginPage(){
         PageFactory.initElements(Driver.getDriver(),this);
+    }
+
+    public void login(){
+        BrowserUtils.wait(3);
+        userName.sendKeys(ConfigurationReader.getProperty("hr"));
+        password.sendKeys(ConfigurationReader.getProperty("password"), Keys.ENTER);
     }
 
     /**

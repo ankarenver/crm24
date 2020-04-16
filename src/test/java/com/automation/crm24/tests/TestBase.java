@@ -18,7 +18,7 @@ import java.io.IOException;
 
 public abstract class TestBase {
 
-    protected WebDriver driver = Driver.getDriver();
+    protected WebDriver driver;
     protected static ExtentReports extentReports;
     protected static ExtentHtmlReporter extentHtmlReporter;
     protected static ExtentTest extentTest;
@@ -47,9 +47,10 @@ public abstract class TestBase {
 
     @BeforeMethod
     public void setup(){
+        driver = Driver.getDriver();
         driver.get(ConfigurationReader.getProperty("environment"));
         driver.manage().window().maximize();
-        BrowserUtils.waitForPageLoad(10);
+        BrowserUtils.waitForPageToLoad(10);
     }
 
     @AfterMethod
